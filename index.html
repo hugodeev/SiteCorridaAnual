@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Corrida Anual - Inscreva-se</title>
-    <link rel="stylesheet" href="src/css/style.css">
-
+    <title>1ª Treino do Fogo - Inscreva-se</title>
     <style>
         :root {
             --primary: #e74c3c;
@@ -219,6 +217,88 @@
             color: var(--dark);
         }
 
+        /* Seção de Numeração */
+        .numeracao-content {
+            background: linear-gradient(135deg, #ffffff00 0%, #ff000000 100%);
+            border-radius: 15px;
+            padding: 60px 40px;
+            text-align: center;
+            color: white;
+        }
+
+        .numeracao-card {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .numero-peito-grande {
+            font-size: 5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .participante-info {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 25px;
+            text-align: left;
+        }
+
+        .participante-info h4 {
+            color: var(--dark);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .info-value {
+            color: #666;
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .download-btn {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .download-btn:hover {
+            background: #2980b9;
+        }
+
         /* Regulamento */
         .regulation-content {
             background-color: white;
@@ -383,6 +463,11 @@
         .submit-btn:hover {
             background-color: var(--primary-dark);
         }
+
+        .submit-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
         
         /* Modal de confirmação */
         .modal {
@@ -467,6 +552,34 @@
             padding-top: 20px;
             border-top: 1px solid rgba(255,255,255,0.1);
         }
+
+        /* Mensagens */
+        .message {
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .error-message {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 10px;
+            color: var(--secondary);
+            font-weight: 600;
+        }
                 
         /* Responsividade */
         @media (max-width: 768px) {
@@ -485,58 +598,50 @@
             .regulation-content {
                 padding: 20px;
             }
+
+            .numeracao-content {
+                padding: 40px 20px;
+            }
+
+            .numero-peito-grande {
+                font-size: 3.5rem;
+            }
+
+            .download-buttons {
+                flex-direction: column;
+            }
         }
     </style>
-
 </head>
 
 <body>
 
     <!-- Cabeçalho -->
     <header>
-
         <div class="container">
-
             <span class="firefighter-icon">🚒</span>
-
-            <h1>1ª Corrida do Fogo - Alunos de Bombeiros Civis de Araruna-PB</h1>
-
+            <h1>1ª Treino do Fogo - Alunos de Bombeiros Civis de Araruna-PB</h1>
             <p>Participe da corrida beneficente dos Bombeiros Civis 2025! 🏃‍♂️
             São 5 km de desafio — cada passo ajuda a realizar nosso sonho</p>
-
             <a href="#inscricao" class="btn">Inscreva-se Agora</a>
-
         </div>
-
     </header>
 
     <!-- Sobre a Corrida -->
     <section id="sobre">
-
         <div class="container">
-
             <div class="section-title">
                 <h2>Sobre a Corrida</h2>
             </div>
-
             <div class="about-content">
-
                 <div class="about-text">
-
                     <h3>Corrida para todos os níveis: viva essa experiência única</h3><br>
-
-                    <p><strong>1ª Corrida do Fogo – 2025</strong> será realizada em <strong>Araruna-PB</strong>, no dia <strong>18 de outubro</strong>.</p> <br>
-
+                    <p><strong>1ª Treino do Fogo – 2025</strong> será realizada em <strong>Araruna-PB</strong>, no dia <strong>18 de outubro</strong>.</p> <br>
                     <p>Os participantes devem chegar para <strong>concentração às 19h00</strong>, e a <strong>largada será às 19h30</strong>, na <strong>Av. Cel. Pedro Targino</strong>, em frente à <strong>Araruna Esportes</strong>.</p><br>
-
                     <p>O percurso terá <strong>5 km</strong>.</p><br>
-
                     <p>Todos os corredores receberão <strong>a numeração de peito</strong>.</p><br>
-
                     <p>O evento é organizado seguindo <strong>todos os protocolos de segurança</strong> e contará com <strong>equipe médica, ponto de hidratação e muito mais</strong>.</p>
-
                 </div>
-
                 <div class="about-image">
                     <img src="src/img/img-principal-header.jpg" alt="Corredores em ação">
                 </div>
@@ -561,31 +666,28 @@
                     <p>O percurso de 5km foi cuidadosamente planejado para oferecer uma experiência desafiadora e agradável, passando pelos principais pontos da cidade:</p>
                     
                     <ul>
-                        <li><strong>Largada:</strong> Avenida cel Pedro targino ( Araruna Esportes )</li>
-                        <li><strong>Km 5:</strong> Praça da Liberdade - ponto de hidratação</li>
-                        <li><strong>Chegada:</strong> Parque Central - área de festa e premiação</li>
+                        <li><strong>Largada:</strong> Avenida cel. Pedro targino ( Araruna Esportes )</li>
+                        <li><strong>Km 5:</strong> Araruna Esportes  - posto de hidratação</li>
+                        <li><strong>Chegada:</strong> Avenida cel. Pedro targino ( Araruna Esportes )</li>
                     </ul>
                     
-                    <h4>Para a Caminhada de 5km:</h4>
+                    <h4>Para a corrida de 5km:</h4>
                     <p>Trajeto mais curto e acessível, ideal para iniciantes e famílias. Percurso circular com largada e chegada no mesmo local.</p>
                 </div>
             </div>
             
             <div class="course-stats">
-
                 <div class="stat-box">
                     <span class="number">5km</span>
                     <span class="label">Corrida Principal</span>
                 </div>
-
                 <div class="stat-box">
                     <span class="number">1</span>
                     <span class="label">Posto de Hidratação</span>
                 </div>
-
                 <div class="stat-box">
-                    <span class="number">2</span>
-                    <span class="label">Postos de Bombeiros Civis</span>
+                    <span class="number">1</span>
+                    <span class="label">Posto de Bombeiros Civis</span>
                 </div>
             </div>
         </div>
@@ -605,8 +707,7 @@
                     <ul>
                         <li>As inscrições estarão abertas até --/10/2025 ou até esgotarem as vagas</li>
                         <li>A taxa de inscrição não será reembolsada em caso de desistência</li>
-                        <li>É permitida a transferência de inscrição até 5 dias antes do evento</li>
-                        <li>Menores de 18 anos devem apresentar autorização assinada pelos responsáveis</li>
+                        <li>É permitida a transferência de inscrição até 3 dias antes do evento</li>
                     </ul>
                 </div>
                 
@@ -614,10 +715,10 @@
                     <h3>2. Kit do Corredor</h3>
                     <ul>
                         <li>O kit (numeração de peito) deverá ser retirado no dia <strong>17/10/2025</strong></li>
-                        <li>Local de retirada: <strong>Sede dos Bombeiros Civis</strong></li>
+                        <li>Local de retirada: <strong>Avenida cel Pedro targino ( Araruna Esportes )</strong></li>
                         <li>É obrigatória a apresentação de documento com foto e comprovante de inscrição</li>
                         <li>O kit inclui apenas: <strong>numeração de peito</strong></li>
-                        <li>Não será possível retirar a numeração no dia da prova (18/10)</li>
+                        <li>Será possível retirar a numeração no dia da prova (18/10)</li>
                     </ul>
                 </div>
                                 
@@ -645,9 +746,7 @@
                     <ul>
                         <li>É proibida a participação de atletas não inscritos</li>
                         <li>O percurso deve ser seguido rigorosamente</li>
-                        <li>É obrigatório o uso do chip de timing</li>
                         <li>Animais não são permitidos no percurso</li>
-                        <li>Fica proibido o uso de fones de ouvido em alto volume</li>
                         <li>A organização se reserva o direito de desclassificar participantes que descumprirem as regras</li>
                     </ul>
                 </div>
@@ -667,28 +766,28 @@
                 <p>Preencha os dados abaixo para garantir sua participação</p>
             </div>
             <div class="form-container">
+                
                 <form id="registration-form">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="nome">Nome Completo *</label>
-                            <input type="text" id="nome" name="nome" required minlength="8" >
+                            <input type="text" id="nome" name="nome" required minlength="8" placeholder="Seu nome completo">
                         </div>
                         <div class="form-group">
                             <label for="cpf">CPF *</label>
-                            <input type="text" id="cpf" name="cpf" required>
+                            <input type="text" id="cpf" name="cpf" required placeholder="000.000.000-00">
                         </div>
                     </div>
                     
                     <div class="form-row">
                         <div class="form-group">
                             <label for="email">E-mail *</label>
-                            <input type="email" id="email" name="email" required minlength="11">
+                            <input type="email" id="email" name="email" required placeholder="seu@email.com">
                         </div>
                         <div class="form-group">
                             <label for="telefone">Telefone *</label>
-                            <input type="tel" id="telefone" name="telefone" required>
+                            <input type="tel" id="telefone" name="telefone" required placeholder="(11) 99999-9999">
                         </div>
-
                     </div>
                     
                     <div class="form-row">
@@ -710,49 +809,41 @@
                     
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="tamanho-camiseta">Tamanho da Camiseta *</label>
-                            <select id="tamanho-camiseta" name="tamanho-camiseta" required>
-                                <option value="">Selecione</option>
-                                <option value="P">P</option>
-                                <option value="M">M</option>
-                                <option value="G">G</option>
-                                <option value="GG">GG</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
                             <label for="categoria">Categoria *</label>
                             <select id="categoria" name="categoria" required>
                                 <option value="">Selecione</option>
-                                <option value="5km">Caminhada 5km</option>
+                                <option value="5km">Corrida 5km</option>
                             </select>
+                        </div>
+                        <div class="form-group">
+                            <!-- Campo vazio para manter o layout balanceado -->
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <label>Forma de Pagamento *</label>
                         <div class="payment-options">
-                            <div class="payment-option" data-value="cartao-credito">
-                                <img src="https://cdn-icons-png.flaticon.com/512/179/179457.png" alt="Cartão de Crédito">
-                                <div>Cartão de Crédito</div>
-                            </div>
-                            <div class="payment-option" data-value="pix">
+                            <div class="payment-option selected" data-value="pix">
                                 <img src="https://logospng.org/download/pix/logo-pix-icone-1024.png" alt="PIX">
                                 <div>PIX</div>
                             </div>
-                            <div class="payment-option" data-value="boleto">
-                                <img src="https://cdn-icons-png.flaticon.com/512/126/126073.png" alt="Boleto">
-                                <div>Boleto</div>
-                            </div>
                         </div>
-                        <input type="hidden" id="pagamento" name="pagamento" required>
+                        <input type="hidden" id="pagamento" name="pagamento" required value="pix">
                     </div>
                     
                     <div class="terms">
                         <input type="checkbox" id="termos" name="termos" required>
                         <label for="termos">Li e concordo com os <a href="#">termos e condições</a> do evento *</label>
                     </div>
+
+                    <div class="loading" id="loading">
+                        ⏳ Enviando sua inscrição...
+                    </div>
                     
-                    <button type="submit" class="submit-btn">Finalizar Inscrição - R$ 30,00</button>
+                    <button type="submit" class="submit-btn" id="submit-btn">Finalizar Inscrição - R$ 25,00</button>
+
+                <div class="success-message" id="success-message"></div>
+                <div class="error-message" id="error-message"></div>
                 </form>
             </div>
         </div>
@@ -762,11 +853,66 @@
     <div class="modal" id="confirmation-modal">
         <div class="modal-content">
             <h3>Inscrição Realizada com Sucesso!</h3>
-            <p>Obrigado por se inscrever na Corrida Anual 2023. Em instantes você receberá um e-mail com os detalhes da sua inscrição e as instruções para o pagamento.</p>
-            <p>Número da inscrição: <strong>#CORR2023001</strong></p>
+            <p>Obrigado por se inscrever no 1ª Treino do Fogo 2025. Seu número de peito foi gerado automaticamente!</p>
+            <p>Número da inscrição: <strong id="numero-inscricao">#TDF2025001</strong></p>
             <button class="btn" onclick="closeModal()">Fechar</button>
         </div>
     </div>
+
+    <!-- Seção de Numeração -->
+    <section id="numeracao">
+        <div class="container">
+            <div class="section-title">
+                <h2>Numeração de Peito</h2>
+                <p>Confira seu número personalizado para a corrida</p>
+            </div>
+            
+            <div class="numeracao-content">
+                <div class="numeracao-card">
+                    <h3 style="color: var(--dark); margin-bottom: 10px;">SEU NÚMERO DE PEITO</h3>
+                    <p style="color: #666; margin-bottom: 20px;">Número gerado automaticamente após a inscrição</p>
+                    
+                    <div class="numero-peito-grande" id="numero-peito-display">
+                        ---
+                    </div>
+                    
+                    <p style="color: #666; font-size: 0.9rem;">VÁLIDO PARA A CORRIDA - 18/10/2025</p>
+                    
+                    <div class="participante-info" id="participante-info" style="display: none;">
+                        <h4>📋 DADOS DO PARTICIPANTE</h4>
+                        <div class="info-item">
+                            <span class="info-label">Nome:</span>
+                            <span class="info-value" id="info-nome">---</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Categoria:</span>
+                            <span class="info-value" id="info-categoria">---</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Data de Inscrição:</span>
+                            <span class="info-value" id="info-data">---</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Status:</span>
+                            <span class="info-value" id="info-status">---</span>
+                        </div>
+                    </div>
+                    
+                    <div class="download-buttons" id="download-section" style="display: none;">
+                        <button class="download-btn" onclick="window.print()">
+                            🖨️ Imprimir Comprovante
+                        </button>
+                        <button class="download-btn" onclick="salvarComoImagem()">
+                            💾 Salvar Número
+                        </button>
+                        <button class="download-btn" onclick="compartilharNumero()">
+                            📤 Compartilhar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Rodapé -->
     <footer>
@@ -777,7 +923,7 @@
                     <ul>
                         <li>E-mail: ararasbravo@gmail.com</li>
                         <li>Telefone: (83) 99607-7120</li>
-                        <li>Endereço: Rua das Corridas, 123 - Centro</li>
+                        <li>Endereço:  Avenida cel. Pedro targino - Araruna Esportes</li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -787,6 +933,7 @@
                         <li><a href="#inscricao">Inscrição</a></li>
                         <li><a href="#percurso">Percurso</a></li>
                         <li><a href="#regulamento">Regulamento</a></li>
+                        <li><a href="#numeracao">Numeração</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -799,50 +946,159 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Corrida Anual – Desenvolvido por <strong><a href="https://www.linkedin.com/in/hugomathais/" style="color: #ffffff; text-decoration: none;">Victor Hugo Matias Salustino</a></strong> </p>
+                <p>&copy; 2025 1ª Treino do Fogo – Desenvolvido por <strong><a href="https://www.linkedin.com/in/hugomathais/" style="color: #ffffff; text-decoration: none;">Victor Hugo Matias Salustino</a></strong></p>
             </div>
         </div>
     </footer>
 
-    <script src="src/js/script.js"></script>
-
     <script>
-        // Seleção de método de pagamento
-        const paymentOptions = document.querySelectorAll('.payment-option');
-        const paymentInput = document.getElementById('pagamento');
         
-        paymentOptions.forEach(option => {
-            option.addEventListener('click', () => {
-                // Remove a classe 'selected' de todas as opções
-                paymentOptions.forEach(opt => opt.classList.remove('selected'));
-                
-                // Adiciona a classe 'selected' à opção clicada
-                option.classList.add('selected');
-                
-                // Atualiza o valor do campo oculto
-                paymentInput.value = option.getAttribute('data-value');
-            });
-        });
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzWUeT1-56nFkEv0tIH6A_UO1hWK6ILpPOqqdLgAIv1zXP_aHnBdv4A9Q53zpeu2evc/exec';
+
+        // Elementos do DOM
+        const form = document.getElementById('registration-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const loading = document.getElementById('loading');
+        const successMessage = document.getElementById('success-message');
+        const errorMessage = document.getElementById('error-message');
+        const numeroPeitoDisplay = document.getElementById('numero-peito-display');
+        const participanteInfo = document.getElementById('participante-info');
+        const downloadSection = document.getElementById('download-section');
+
+        // ========== SISTEMA DE NÚMEROS ALEATÓRIOS E PREVENÇÃO DE DUPLICATAS ==========
         
-        // Validação e envio do formulário
-        document.getElementById('registration-form').addEventListener('submit', function(e) {
-            e.preventDefault();
+        // Conjunto para armazenar números já utilizados (em memória)
+        let numerosUtilizados = new Set();
+        
+        // Função para gerar número aleatório único entre 100 e 999
+        function gerarNumeroAleatorio() {
+            let numero;
+            let tentativas = 0;
+            const maxTentativas = 900; // Números de 100 a 999
             
-            // Validação básica
-            if (!paymentInput.value) {
-                alert('Por favor, selecione uma forma de pagamento.');
-                return;
+            do {
+                numero = Math.floor(Math.random() * 900) + 100; // 100-999
+                tentativas++;
+                
+                // Se já tentou muitos números, expande o range
+                if (tentativas > 50) {
+                    numero = Math.floor(Math.random() * 9000) + 1000; // 1000-9999
+                }
+                
+                // Previne loop infinito
+                if (tentativas > maxTentativas) {
+                    console.error('Não foi possível gerar número único');
+                    return Math.floor(Math.random() * 9000) + 1000; // Força um número
+                }
+                
+            } while (numerosUtilizados.has(numero));
+            
+            numerosUtilizados.add(numero);
+            console.log(`Número gerado: ${numero}, Tentativas: ${tentativas}`);
+            return numero;
+        }
+
+        // Função para verificar se o CPF já está inscrito
+        function verificarCPFExistente(cpf) {
+            // Remove caracteres não numéricos do CPF para comparação
+            const cpfLimpo = cpf.replace(/\D/g, '');
+            
+            // Verifica no localStorage primeiro
+            if (typeof(Storage) !== "undefined") {
+                const dadosSalvos = localStorage.getItem("inscricaoTreinoDoFogo");
+                if (dadosSalvos) {
+                    const inscricao = JSON.parse(dadosSalvos);
+                    // Se já existe uma inscrição salva, impede nova inscrição
+                    return true;
+                }
             }
             
-            // Simulação de envio bem-sucedido
-            document.getElementById('confirmation-modal').style.display = 'flex';
-        });
-        
-        // Fechar modal
-        function closeModal() {
-            document.getElementById('confirmation-modal').style.display = 'none';
+            // Aqui você pode implementar uma verificação no servidor também
+            // Por enquanto, retorna false (não existe) para permitir a inscrição
+            return false;
         }
-        
+
+        // Função para SALVAR o número de peito no localStorage
+        function salvarNumeroPeito(numeroPeito, dadosParticipante, cpf) {
+            if (typeof(Storage) !== "undefined") {
+                const dadosInscricao = {
+                    numero: numeroPeito,
+                    nome: dadosParticipante.nome,
+                    cpf: cpf.replace(/\D/g, ''), // Salva CPF limpo
+                    categoria: dadosParticipante.categoria,
+                    data: dadosParticipante.data,
+                    status: 'Confirmado',
+                    timestamp: new Date().toISOString()
+                };
+                localStorage.setItem("inscricaoTreinoDoFogo", JSON.stringify(dadosInscricao));
+                console.log('Número salvo no localStorage:', dadosInscricao);
+            }
+        }
+
+        // Função para CARREGAR o número de peito do localStorage
+        function carregarNumeroPeito() {
+            if (typeof(Storage) !== "undefined") {
+                const dadosSalvos = localStorage.getItem("inscricaoTreinoDoFogo");
+                
+                if (dadosSalvos) {
+                    const inscricao = JSON.parse(dadosSalvos);
+                    
+                    // Adiciona o número ao conjunto de utilizados
+                    numerosUtilizados.add(inscricao.numero);
+                    
+                    // Preenche a seção de numeração na página
+                    document.getElementById("numero-peito-display").textContent = inscricao.numero;
+                    document.getElementById("info-nome").textContent = inscricao.nome;
+                    document.getElementById("info-categoria").textContent = inscricao.categoria;
+                    document.getElementById("info-data").textContent = inscricao.data;
+                    document.getElementById("info-status").textContent = inscricao.status;
+                    
+                    // Torna a seção de informações visível
+                    document.getElementById("participante-info").style.display = 'block';
+                    document.getElementById("download-section").style.display = 'block';
+                    
+                    console.log('Número carregado do localStorage:', inscricao);
+                    
+                    // Desabilita o formulário se já existe inscrição
+                    desabilitarFormulario();
+                }
+            }
+        }
+
+        // Função para desabilitar o formulário se já inscrito
+        function desabilitarFormulario() {
+            const form = document.getElementById('registration-form');
+            const inputs = form.querySelectorAll('input, select, button');
+            
+            inputs.forEach(input => {
+                input.disabled = true;
+            });
+            
+            submitBtn.textContent = 'Você já está inscrito!';
+            submitBtn.style.backgroundColor = '#95a5a6';
+            
+            // Adiciona mensagem informativa
+            const mensagem = document.createElement('div');
+            mensagem.className = 'success-message';
+            mensagem.style.display = 'block';
+            mensagem.innerHTML = '✅ Você já possui uma inscrição ativa. Em caso de dúvidas, entre em contato com a organização.';
+            form.insertBefore(mensagem, form.firstChild);
+        }
+
+        // ========== CONFIGURAÇÕES INICIAIS ==========
+
+        // Configuração automática do PIX e carrega número salvo
+        document.addEventListener('DOMContentLoaded', function() {
+            const paymentOption = document.querySelector('.payment-option');
+            const paymentInput = document.getElementById('pagamento');
+            
+            paymentOption.classList.add('selected');
+            paymentInput.value = 'pix';
+            
+            // Carrega o número salvo ao iniciar a página
+            carregarNumeroPeito();
+        });
+
         // Máscara para CPF
         document.getElementById('cpf').addEventListener('input', function(e) {
             let value = e.target.value.replace(/\D/g, '');
@@ -855,7 +1111,7 @@
             }
             e.target.value = value;
         });
-        
+
         // Máscara para telefone
         document.getElementById('telefone').addEventListener('input', function(e) {
             let value = e.target.value.replace(/\D/g, '');
@@ -868,8 +1124,148 @@
             }
             e.target.value = value;
         });
+
+// ========== ENVIO DO FORMULÁRIO ==========
+
+// Envio do formulário
+form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    // Verifica se já existe inscrição
+    const cpf = document.getElementById('cpf').value;
+    if (verificarCPFExistente(cpf)) {
+        showError('Este CPF já possui uma inscrição ativa. Cada pessoa só pode se inscrever uma vez.');
+        return;
+    }
+    
+    // Validar termos
+    if (!document.getElementById('termos').checked) {
+        showError('Por favor, aceite os termos e condições para continuar.');
+        return;
+    }
+
+    // Configurar loading
+    submitBtn.disabled = true;
+    loading.style.display = 'block';
+    hideMessages();
+
+    try {
+        const formData = new FormData(this);
+        
+        // ✅ GERA número aleatório único
+        const numeroAleatorio = gerarNumeroAleatorio();
+        console.log('🎯 Número aleatório gerado:', numeroAleatorio);
+        
+        // ✅ ADICIONA o número aleatório ao formData (CORRETO)
+        formData.append('numero-aleatorio', numeroAleatorio.toString());
+        
+        const response = await fetch(SCRIPT_URL, {
+            method: 'POST',
+            body: formData
+        });
+        
+        const result = await response.json();
+        console.log('📨 Resposta do servidor:', result);
+        
+        if (result.status === 'success') {
+            showSuccess('Inscrição realizada com sucesso!');
+            
+            // ✅ USA o número aleatório que GERAMOS, não o do servidor
+            showNumeroPeito(numeroAleatorio, result.dados);
+            salvarNumeroPeito(numeroAleatorio, result.dados, cpf);
+            
+            document.getElementById('numero-inscricao').textContent = '#TDF2025' + numeroAleatorio;
+            document.getElementById('confirmation-modal').style.display = 'flex';
+            form.reset();
+            
+            // Desabilita formulário após inscrição bem-sucedida
+            desabilitarFormulario();
+            
+            // Restaurar PIX selecionado
+            document.querySelector('.payment-option').classList.add('selected');
+            document.getElementById('pagamento').value = 'pix';
+            
+        } else {
+            throw new Error(result.message);
+        }
+        
+    } catch (error) {
+        console.error('Erro:', error);
+        showError('Erro na inscrição: ' + error.message);
+    } finally {
+        submitBtn.disabled = false;
+        loading.style.display = 'none';
+    }
+});
+
+        function showSuccess(message) {
+            successMessage.textContent = message;
+            successMessage.style.display = 'block';
+        }
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.style.display = 'block';
+        }
+
+        function hideMessages() {
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+        }
+
+        function showNumeroPeito(numero, dados) {
+            // Atualizar display do número
+            numeroPeitoDisplay.textContent = numero;
+            
+            // Atualizar informações do participante
+            document.getElementById('info-nome').textContent = dados.nome;
+            document.getElementById('info-categoria').textContent = dados.categoria;
+            document.getElementById('info-data').textContent = dados.data;
+            document.getElementById('info-status').textContent = 'Confirmado';
+            
+            // Mostrar seções
+            participanteInfo.style.display = 'block';
+            downloadSection.style.display = 'block';
+            
+            // Rolagem suave para a seção de numeração
+            document.getElementById('numeracao').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+
+        function closeModal() {
+            document.getElementById('confirmation-modal').style.display = 'none';
+        }
+
+        function salvarComoImagem() {
+            alert('Funcionalidade de salvar imagem será implementada em breve!');
+        }
+
+        function compartilharNumero() {
+            const numero = document.getElementById('numero-peito-display').textContent;
+            const nome = document.getElementById('info-nome').textContent;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Meu Número da Corrida - 1ª Treino do Fogo',
+                    text: `Olá! Meu número para a corrida 1ª Treino do Fogo é ${numero}. Nome: ${nome}`,
+                    url: window.location.href
+                });
+            } else {
+                alert(`Compartilhe seu número: ${numero} - Nome: ${nome}`);
+            }
+        }
+
+        // Configurar data mínima e máxima para data de nascimento
+        document.addEventListener('DOMContentLoaded', function() {
+            const dataInput = document.getElementById('data-nascimento');
+            const hoje = new Date();
+            const dataMinima = new Date(hoje.getFullYear() - 80, hoje.getMonth(), hoje.getDate());
+            const dataMaxima = new Date(hoje.getFullYear() - 10, hoje.getMonth(), hoje.getDate());
+            
+            dataInput.min = dataMinima.toISOString().split('T')[0];
+            dataInput.max = dataMaxima.toISOString().split('T')[0];
+        });
     </script>
-
 </body>
-
 </html>
